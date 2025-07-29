@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import { Amplify } from "aws-amplify";
 import { Inter } from "next/font/google";
 import "./app.css";
+import "./globals.css";
 import AuthenticatorWrapper from "./AuthenticatorWrapper";
+import Navigation from "./components/Navigation";
 
 import "@aws-amplify/ui-react/styles.css";
 import outputs from "@/amplify_outputs.json";
@@ -22,7 +24,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <AuthenticatorWrapper>{children}</AuthenticatorWrapper>
+        <AuthenticatorWrapper>
+          <Navigation />
+          {children}
+        </AuthenticatorWrapper>
       </body>
     </html>
   );
