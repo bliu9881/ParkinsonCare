@@ -11,9 +11,12 @@ frontend:
     preBuild:
       commands:
         - npm install -g pnpm
+        - node --version
+        - pnpm --version
+        - echo "Using Node.js $(node --version) and pnpm $(pnpm --version)"
     build:
       commands:
-        - pnpm install --frozen-lockfile
+        - pnpm install --frozen-lockfile --no-optional
         - pnpm run build
   artifacts:
     baseDirectory: .next
