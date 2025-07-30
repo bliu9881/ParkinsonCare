@@ -14,9 +14,15 @@ frontend:
         - node --version
         - pnpm --version
         - echo "Using Node.js $(node --version) and pnpm $(pnpm --version)"
+        - export NODE_OPTIONS="--max-old-space-size=4096"
+        - export NEXT_TELEMETRY_DISABLED=1
+        - export GENERATE_SOURCEMAP=false
     build:
       commands:
-        - pnpm install --frozen-lockfile --no-optional
+        - pnpm install --frozen-lockfile --no-optional --prefer-offline
+        - export NODE_OPTIONS="--max-old-space-size=4096"
+        - export NEXT_TELEMETRY_DISABLED=1
+        - export GENERATE_SOURCEMAP=false
         - pnpm run build
   artifacts:
     baseDirectory: .next

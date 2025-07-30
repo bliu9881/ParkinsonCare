@@ -4,6 +4,9 @@
 
 echo "🚀 Starting deployment..."
 
+# Set memory optimization
+export NODE_OPTIONS="--max-old-space-size=4096"
+
 # Check Node.js version
 echo "📋 Node.js version:"
 node --version
@@ -18,11 +21,11 @@ fi
 echo "📋 pnpm version:"
 pnpm --version
 
-# Install dependencies
+# Install dependencies with memory optimization
 echo "📦 Installing dependencies..."
-pnpm install --frozen-lockfile
+pnpm install --frozen-lockfile --prefer-offline --no-optional
 
-# Build the application
+# Build the application with memory optimization
 echo "🔨 Building application..."
 pnpm run build
 

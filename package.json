@@ -9,7 +9,8 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "NODE_OPTIONS='--max-old-space-size=4096' next build",
+    "build:optimized": "NODE_OPTIONS='--max-old-space-size=4096' next build && next export",
     "start": "next start",
     "lint": "next lint"
   },

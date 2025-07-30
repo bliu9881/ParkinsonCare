@@ -15,4 +15,12 @@ module.exports = {
     },
   },
   plugins: [],
+  // Optimize for production builds
+  corePlugins: {
+    preflight: true,
+  },
+  // Reduce CSS output size
+  future: {
+    hoverOnlyWhenSupported: true,
+  },
 };
